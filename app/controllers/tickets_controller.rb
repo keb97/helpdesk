@@ -41,9 +41,9 @@ class TicketsController < ApplicationController
   # POST /tickets.json
   def create
     @ticket = Ticket.new(params[:ticket])
-    ReplyMailer.question_email(@ticket).deliver
     respond_to do |format|
       if @ticket.save
+        ReplyMailer.question_email(@ticket).deliver
         format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }
         format.json { render json: @ticket, status: :created, location: @ticket }
       else
