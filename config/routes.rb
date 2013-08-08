@@ -1,6 +1,9 @@
 Helpdesk::Application.routes.draw do
   resources :tickets
   root :to => "tickets#index"
+  namespace :api do
+    resources :tickets, :only => [ :create ]
+  end
 
 
   # The priority is based upon order of creation:
