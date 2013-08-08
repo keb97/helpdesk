@@ -11,4 +11,5 @@ class ReplyMailer < ActionMailer::Base
     mitt = Postmark::Mitt.new(request.body.read)
     @ticket = Ticket.find_by_id(mitt.subject)
     @ticket.solution = mitt.body
+  end
 end
