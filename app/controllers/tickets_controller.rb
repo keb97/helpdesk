@@ -40,6 +40,7 @@ class TicketsController < ApplicationController
   # POST /tickets
   # POST /tickets.json
   def create
+    if (@ticket.exists? == FALSE) do
     @ticket = Ticket.new(params[:ticket])
     respond_to do |format|
       if @ticket.save
@@ -51,6 +52,8 @@ class TicketsController < ApplicationController
         format.json { render json: @ticket.errors, status: :unprocessable_entity }
       end
     end
+    else
+      @ticket.solution = #whatever the email body is.
   end
 
   # PUT /tickets/1
