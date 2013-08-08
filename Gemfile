@@ -8,6 +8,7 @@ gem 'rails', '3.2.13'
 gem 'pg'
 
 gem 'postmark-rails'
+gem 'postmark-mitt'
 
 
 

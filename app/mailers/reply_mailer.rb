@@ -8,6 +8,7 @@ class ReplyMailer < ActionMailer::Base
   end
 
   def receive(email)
-    @ticket = Ticket.find_by_id(email.subject)
-    @ticket.solution = email.body
+    mitt = Postmark::Mitt.new(request.body.read)
+    @ticket = Ticket.find_by_id(mitt.subject)
+    @ticket.solution = mitt.body
 end
