@@ -51,8 +51,6 @@ class TicketsController < ApplicationController
         format.json { render json: @ticket.errors, status: :unprocessable_entity }
       end
     end
-    else
-      @ticket.solution = #whatever the email body is.
   end
 
   # PUT /tickets/1
