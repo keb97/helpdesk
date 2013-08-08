@@ -40,7 +40,6 @@ class TicketsController < ApplicationController
   # POST /tickets
   # POST /tickets.json
   def create
-    if (@ticket.exists? == FALSE) do
     @ticket = Ticket.new(params[:ticket])
     respond_to do |format|
       if @ticket.save
